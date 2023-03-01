@@ -1,0 +1,49 @@
+@import url('https://fonts.google.com/specimen/Josefin+Sans');
+
+:root {
+    --background: #fafafa;
+    --text-primary: #0f0f0f;
+    --text-secondary: #4e4e4e;
+    --accent: #dfb017;
+    --accent-hover: #cea315; 
+    --border: #1f1e1e;
+    --bgImg: url('./assets/bg-mobile-light.jpg');
+    --shadow: 7px 15px 13px -4px #00000056;
+}
+
+[data-theme='dark']  {
+    --background: #25273c;
+    --text-primary: #f2f2f2;
+    --text-secondary: #a7a4a4;
+    --accent: #6a5acd;
+    --accent-hover: #5b4cbe; 
+    --border: #696969;
+    --bgImg:url('./assets/bg-mobile-dark.jpg');
+    --shadow: 7px 15px 13px -4px #ffffff1b;
+}
+body{
+  background-color: var(--background);
+  color: var(--text-primary);
+  transition: all .5s ease-in-out;
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.todo, .toggle, .selector {
+  background-color: var(--background);
+}
+
+form, input{
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+/*very dark blue #161722*/ 
+/* very dark desaturated blue #25273c*/ 
+/* light grayish blue #cacde8*/
+/* dark grayish blue #777a92*/
+/* very dark grayish blue #4d5066*/
+/*very dark grayish blue #393a4c*/
+
+.toggle_bg {
+  background-image: var(--bgImg)
+}

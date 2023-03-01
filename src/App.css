@@ -1,0 +1,71 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  height: 200px;
+  background-image: url('./assets/bg-desktop-light.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.relative {
+  position: relative;
+  width: 100%;
+}
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  left: 1rem;
+  top: 2em;
+  z-index: 99;
+  left: 10;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add_todo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.add_todo input {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.add_todo input:focus {
+  border-bottom: 1px solid;
+}
+
+.circle {
+  border: 1px solid;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.active {
+  color: blue;
+}
