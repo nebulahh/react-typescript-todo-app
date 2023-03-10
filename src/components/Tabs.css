@@ -1,0 +1,14 @@
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tabs-container__child {
+ gap: 10px;
+ display: flex;
+}
+
+.tabs-container__child * {
+  cursor: pointer;
+}

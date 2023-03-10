@@ -1,5 +1,3 @@
-
-
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +10,10 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.logo {
+  letter-spacing: .8rem;
 }
 
 .relative {
@@ -68,4 +70,23 @@ main {
 
 .active {
   color: blue;
+}
+
+.container-switch {
+  width: 25px;
+}
+
+.container-switch img {
+  max-width: 100%; 
+}
+
+.dragAndDropInfo {
+  margin-top: 30px; 
+  text-align: center;
+}
+
+@media all and (min-width: 768px) {
+  main {
+    left: 5%;
+  }
 }

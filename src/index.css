@@ -8,6 +8,7 @@
     --accent-hover: #cea315; 
     --border: #1f1e1e;
     --bgImg: url('./assets/bg-mobile-light.jpg');
+    --modeImg: url('./assets/brightness.png');
     --shadow: 7px 15px 13px -4px #00000056;
 }
 
@@ -18,7 +19,8 @@
     --accent: #6a5acd;
     --accent-hover: #5b4cbe; 
     --border: #696969;
-    --bgImg:url('./assets/bg-mobile-dark.jpg');
+    --bgImg: url('./assets/bg-mobile-dark.jpg');
+    --modeImg: url('./assets/night-mode.png');
     --shadow: 7px 15px 13px -4px #ffffff1b;
 }
 body{
@@ -30,6 +32,11 @@ body{
 }
 .todo, .toggle, .selector {
   background-color: var(--background);
+}
+
+.toggleDarkLight {
+  content: var(--modeImg);
+  cursor: pointer;
 }
 
 form, input{
