@@ -1,10 +1,10 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-import Tabs from './components/Tabs.tsx'
+import Tabs from './components/Tabs'
 import './index.css'
 
 
-type todos = {
+type todosType = {
   id: number,
   isCompleted: boolean,
   item: string | number
@@ -13,9 +13,11 @@ type todos = {
 type Theme = 'dark' | 'light'
 
 function App() {
-  const [todos, setTodos] = useState<todos[]>([])
+  const [todos, setTodos] = useState<todosType[]>([])
   const [theme, setTheme] = useState<Theme>('light')
   const [next, setNext] = useState(0)
+  console.log(todos);
+  
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -23,7 +25,7 @@ function App() {
 
   const handleChange = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
-  function handleSubmit(e) {
+  function handleSubmit(e: any) {
     e.preventDefault()
     if (e.target[0].value.length === 0) {
       alert("The task input field is empty")
@@ -81,7 +83,6 @@ function deleteAllCompleted() {
     </form>
     </div>
     <Tabs 
-      setTodos={setTodos} 
       todos={todos} 
       deleteItem={deleteItem} 
       deleteAllCompleted={deleteAllCompleted} 

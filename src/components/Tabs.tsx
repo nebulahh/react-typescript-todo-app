@@ -1,30 +1,35 @@
 import {useState} from "react";
-import Todolist from './AllTabs/AllTodos.tsx'
-import Active from './AllTabs/ActiveTodos.tsx'
-import Completed from './AllTabs/CompletedTodos.tsx'
+import Todolist from './AllTabs/AllTodos'
+import Active from './AllTabs/ActiveTodos'
+import Completed from './AllTabs/CompletedTodos'
 import './Tabs.css'
 import {DragDropContext, DropResult} from 'react-beautiful-dnd'
 
 type TodoType = {
-  todos: {}[],
-  deleteItem: React.MouseEventHandler < HTMLButtonElement >
-  onToggle: React.MouseEventHandler < HTMLButtonElement >
-  setTodos: React.Dispatch<React.SetStateAction<[]>>
-  deleteAllCompleted: React.MouseEventHandler < HTMLButtonElement >,
+  todos: any,
+  deleteItem: (id: number) => void,
+  onToggle: (id: number, status: boolean) => void
+  deleteAllCompleted: () => void,
 }
 
 type SectionType = {
   tab: string,
-  deleteItem: React.MouseEventHandler < HTMLButtonElement >,
-  onToggle: React.MouseEventHandler < HTMLButtonElement >,
-  deleteAllCompleted: React.MouseEventHandler < HTMLButtonElement >,
-  todos: {}[],
+  deleteItem: (id: number) => void,
+  onToggle: (id: number, status: boolean) => void,
+  deleteAllCompleted: () => void,
+  todos: [
+    {
+      id: number,
+      isCompleted: boolean,
+      item: string | number
+    }
+  ],
   handleDragEnd(result: DropResult): void
 }
 
 const Tabs = (props: TodoType) => {
-  const [activeTab,
-    setActiveTab] = useState("tab1");
+  const [newOrderItem, setNewOrderItem] = useState(props.todos)
+  const [activeTab, setActiveTab] = useState("tab1");
 
   const handleTab1 = () => {
     setActiveTab("tab1");
@@ -46,11 +51,13 @@ const Tabs = (props: TodoType) => {
       return;
     }
 
-    const items = Array.from(props.todos)
+    const items = Array.from(newOrderItem)
+    
     const [reorderedItem] = items.splice(result.source.index, 1)
     items.splice(result.destination.index, 0, reorderedItem)
+    setNewOrderItem(items)
 
-    props.setTodos(items)
+    // props.setTodos(newOrderItem)
 
   }
   return (
@@ -59,7 +66,7 @@ const Tabs = (props: TodoType) => {
       <Section 
         handleDragEnd={handleDragEnd}
         tab={activeTab}
-        todos={props.todos} 
+        todos={newOrderItem} 
         deleteItem={props.deleteItem} 
         deleteAllCompleted={props.deleteAllCompleted}
         onToggle={props.onToggle}

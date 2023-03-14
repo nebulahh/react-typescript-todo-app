@@ -10,8 +10,8 @@ type TodoType = {
     }
   ],
   deleteAllCompleted: () => void,
-  deleteItem: React.MouseEventHandler<HTMLButtonElement>,
-  onToggle: React.MouseEventHandler <HTMLButtonElement>,
+  deleteItem: Function,
+  onToggle: Function,
 }
 
 type ItemType = {
