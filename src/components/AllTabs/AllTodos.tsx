@@ -1,14 +1,9 @@
 import "./AllTodos.css"
 import {Droppable, Draggable} from 'react-beautiful-dnd';
+import { todosType } from '../../App'
 
 type TodoType = {
-  todos: [
-    {
-      id: number,
-      isCompleted: boolean,
-      item: string | number
-    }
-  ],
+  todos: todosType[],
   deleteAllCompleted: () => void,
   deleteItem: Function,
   onToggle: Function,

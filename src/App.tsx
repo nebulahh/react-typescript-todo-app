@@ -4,7 +4,7 @@ import Tabs from './components/Tabs'
 import './index.css'
 
 
-type todosType = {
+export type todosType = {
   id: number,
   isCompleted: boolean,
   item: string | number
@@ -15,9 +15,7 @@ type Theme = 'dark' | 'light'
 function App() {
   const [todos, setTodos] = useState<todosType[]>([])
   const [theme, setTheme] = useState<Theme>('light')
-  const [next, setNext] = useState(0)
-  console.log(todos);
-  
+  const [next, setNext] = useState(0)  
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -25,8 +23,11 @@ function App() {
 
   const handleChange = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
-  function handleSubmit(e: any) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    console.log(e.target);
+    
+    
     if (e.target[0].value.length === 0) {
       alert("The task input field is empty")
     } else {
@@ -39,7 +40,7 @@ function App() {
 
   function deleteItem(id: number) {
     setTodos(
-      todos.filter((item, i) => item.id !== id)
+      todos.filter(item => item.id !== id)
     )
   }
   
@@ -78,12 +79,13 @@ function deleteAllCompleted() {
       <div className="form">
       <form onSubmit={e => handleSubmit(e)} className="add_todo">
       <div className="circle"></div>
-      <input type="text"
+      <input type="text" name='todo'
         placeholder="click here create a new todo..." />
     </form>
     </div>
     <Tabs 
       todos={todos} 
+      setTodos={setTodos}
       deleteItem={deleteItem} 
       deleteAllCompleted={deleteAllCompleted} 
       onToggle={onToggle}
