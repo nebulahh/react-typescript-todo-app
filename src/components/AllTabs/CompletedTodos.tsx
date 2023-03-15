@@ -2,7 +2,7 @@ import { Draggable, Droppable } from "react-beautiful-dnd"
 import { todosType } from "../../App"
 import "./AllTodos.css"
 
-type TodoType = {
+type CompletedTodoType = {
   todos: todosType[],
   deleteAllCompleted: () => void,
   deleteItem: Function,
@@ -14,7 +14,7 @@ type ItemType = {
   status: boolean
 }
 
-export default function Completed(props: TodoType) {
+export default function Completed(props: CompletedTodoType) {
 let done = props.todos.filter(task => task.isCompleted === true)
 
 function deleteAll() {

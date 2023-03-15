@@ -2,7 +2,7 @@ import "./AllTodos.css"
 import {Droppable, Draggable} from 'react-beautiful-dnd';
 import { todosType } from '../../App'
 
-type TodoType = {
+type AllTodoType = {
   todos: todosType[],
   deleteAllCompleted: () => void,
   deleteItem: Function,
@@ -14,7 +14,7 @@ type ItemType = {
   status: boolean
 }
 
-export default function AllTodos(props: TodoType) {
+export default function AllTodos(props: AllTodoType) {
 
 function deleteAll() {
   props.deleteAllCompleted()

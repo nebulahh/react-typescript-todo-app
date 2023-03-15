@@ -12,6 +12,14 @@ export type todosType = {
 
 type Theme = 'dark' | 'light'
 
+interface CustomElements extends HTMLFormControlsCollection {
+  todo: HTMLInputElement;
+}
+
+interface CustomForm extends HTMLFormElement {
+  readonly elements: CustomElements;
+}
+
 function App() {
   const [todos, setTodos] = useState<todosType[]>([])
   const [theme, setTheme] = useState<Theme>('light')
@@ -23,17 +31,16 @@ function App() {
 
   const handleChange = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<CustomForm>) {
     e.preventDefault()
-    console.log(e.target);
+    const target = e.currentTarget;    
     
-    
-    if (e.target[0].value.length === 0) {
+    if (target.todo.value.length === 0) {
       alert("The task input field is empty")
     } else {
       setNext(next + 1)
       setTodos([...todos.slice(0, 0), {
-        id: next ,isCompleted: false, item: e.target[0].value
+        id: next ,isCompleted: false, item: target.todo.value
       }, ...todos.slice(0)])
     }
   }
@@ -77,9 +84,10 @@ function deleteAllCompleted() {
 
     </div>
       <div className="form">
-      <form onSubmit={e => handleSubmit(e)} className="add_todo">
+      <form onSubmit={handleSubmit} className="add_todo">
       <div className="circle"></div>
-      <input type="text" name='todo'
+      <label htmlFor="todo"></label>
+      <input type="text" id='todo'
         placeholder="click here create a new todo..." />
     </form>
     </div>
