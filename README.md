@@ -3,7 +3,7 @@ This todo-list was personal project made to improve skills in React, Typescript 
 
 **Link to project:** [https://subtle-vacherin-be8ba5.netlify.app/](https://subtle-vacherin-be8ba5.netlify.app/)
 
-![alt tag](http://placecorgi.com/1200/650)
+<img src="todolist.png" alt="banner">
 
 
 **Tech used:** React, Typescript, CSS,
