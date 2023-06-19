@@ -12,7 +12,7 @@ This todo-list was personal project made to improve skills in React, Typescript 
 
 ## Optimizations
 
-codebase is a bit messy. 
+code organisation.
 
 ## Lessons Learned:
 
